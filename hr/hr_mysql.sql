@@ -2,26 +2,6 @@ CREATE TABLE regions
    ( region_id INTEGER 
    , region_name VARCHAR(25) 
    );
-CREATE UNIQUE INDEX reg_id_pk
-         ON regions (region_id);
-ALTER TABLE regions
-         ADD ( CONSTRAINT reg_id_pk
-   PRIMARY KEY (region_id)
-   ) ;
-       
-CREATE TABLE countries 
-   ( country_id CHAR(2) 
-   , country_name VARCHAR(40) 
-   , region_id INTEGER  
-   ); 
-ALTER TABLE countries ADD CONSTRAINT country_c_id_pk 
-   PRIMARY KEY (country_id);
-ALTER TABLE countries
-         ADD ( CONSTRAINT countr_reg_fk
-   FOREIGN KEY (region_id)
-   REFERENCES regions(region_id) 
-   ) ;
-
 CREATE TABLE locations
    ( location_id INTEGER(4)
    , street_address VARCHAR(40)
